@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" href="styles/style.css"/>
+	<script type="text/javascript" src="scripts/angular.min.js"></script>
+</head>
+
+<body>
+	<header>
+		<h1>My Home Page</h1>
+	</header>
+	<nav>	
+		<ul class="navi">
+			<li><a class="active" href="index.html">Home</a></li>
+			<li><a href="html/ang.html">Angular Page</a></li>
+			<li><a href="html/clock.html">Clock</a></li>
+			<li><a href="html/about.html">About</a></li>
+			<li><a href="html/calculator.html">Calculator</a></li>
+			<li id="searchBox"><input></input> <input type="button" value="Search"></input></li>
+		</ul>
+	</nav>
+	<br/>
+	
+	<section>
+		<div ng-controller="testCtrl">
+			<p ng-if="hourOfDay<12">Good morning!</p>
+			<p ng-if="hourOfDay>=12 && hourOfDay < 17">Good afternoon!</p>
+			<p ng-if="hourOfDay>=17">Good evening!</p>
+		</div>
+	</section>
+	
+	<article></article>
+	
+	<aside></aside>
+	<script>
+		var myModule = angular.module("myApp", []);
+		myModule.controller("testCtrl", getHourOfDay);
+		function getHourOfDay($scope) {
+			var date = new Date();
+			$scope.hourOfDay = date.getHours();
+			console.log("test function called ");
+		}
+	</script>
+</body>
+
+<footer>
+	<br/>
+	<strong>Troy Li - 2017</strong>
+	<br/>
+</footer>
+</html>

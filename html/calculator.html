@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="ang">
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" href="../styles/style.css"/>
+	<script type="text/javascript" src="../scripts/angular.min.js"></script>
+	<script type="text/javascript" src="../scripts/app.js"></script>
+</head>
+
+<body>
+	<header>
+		<h1>My Calculator Page</h1>
+	</header>
+	<nav>	
+		<ul class="navi">
+		  <li><a class="active" href="../index.html">Home</a></li>
+		  <li><a href="ang.html">Angular Page</a></li>
+		  <li><a href="clock.html">Clock</a></li>
+		  <li><a href="about.html">About</a></li>
+		  <li><a href="calculator.html">Calculator</a></li>
+		  <li id="searchBox"><input></input> <input type="button" value="Search"></input></li>
+		</ul>
+	</nav>
+	<br/>
+	
+	<section ng-controller="ctrl1 as c1">
+		<h1>Calculator</h1>
+				
+		<div>
+			<p style="color: red">{{c1.errors}}</p>
+			<p>
+				<input type="number" ng-model="c1.first"></input> 
+				<span>{{c1.operation}}</span>
+				<input type="number" ng-model="c1.second"> 
+				<button ng-click="c1.calculate()">=</button> {{c1.result}}
+			</p>
+			<p>Choose an operation: 
+				<button ng-click="c1.changeOperation('*')">*</button> 
+				<button ng-click="c1.changeOperation('/')">/</button> 
+				<button ng-click="c1.changeOperation('+')">+</button> 
+				<button ng-click="c1.changeOperation('-')">-</button>
+			</p>
+		</div>
+		
+		<div>
+			<p>You entered:</p>
+			<p ng-if="c1.first!=null&&c1.second!=null&&c1.result!=null">
+			{{c1.first}} {{c1.operation}} {{c1.second}} = {{c1.result}}
+			</p>
+		</div>
+		
+	</section>
+	
+	<article></article>
+	
+	<aside></aside>
+</body>
+
+<footer>
+	<br/>
+	<strong>Troy Li - 2017</strong>
+	<br/>
+</footer>
+</html>

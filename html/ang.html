@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="ang">
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" href="../styles/style.css"/>
+	<script type="text/javascript" src="../scripts/angular.min.js"></script>
+</head>
+
+<body>
+	<header>
+		<h1>My Angular Page</h1>
+	</header>
+	<nav>	
+		<ul class="navi">
+		  <li><a class="active" href="../index.html">Home</a></li>
+		  <li><a href="ang.html">Angular Page</a></li>
+		  <li><a href="clock.html">Clock</a></li>
+		  <li><a href="about.html">About</a></li>
+		  <li><a href="calculator.html">Calculator</a></li>
+		  <li id="searchBox"><input></input> <input type="button" value="Search"></input></li>
+		</ul>
+	</nav>
+	<br/>
+	
+	<section ng-controller="myExample">
+		<div>
+			<p>Textbox: <input type="text" ng-change="textBoxChange()"ng-model="textString"></input></p>
+			<p>Checkbox: <input type="checkbox" ng-model="booleanValue"></input></p>
+			<p>Date: <input type="date" ng-model="dateValue"></input></p>
+			<p>Radio:
+				<input type="radio" ng-model="radioValue" value="opt1">Option 1</input>
+				<input type="radio" ng-model="radioValue" value="opt2">Option 2</input>
+				<input type="radio" ng-model="radioValue" value="opt3">Option 3</input>
+				<input type="radio" ng-model="radioValue" value="opt4">Option 4</input>
+			</p>
+		</div>
+		<br/>			
+		<div>
+			<h2>Values from input</h2>
+			<p>Text input: {{textString}}</p>
+			<p>Checkbox input: {{booleanValue}}</p>
+			<p>Date input: {{dateValue}}</p>
+			<p>Radio input: {{radioValue}}</p>
+		</div>
+	</section>
+	
+	<article></article>
+	
+	<aside></aside>
+	<script type="text/javascript" src="../scripts/app.js"></script>
+</body>
+
+<footer>
+	<br/>
+	<strong>Troy Li - 2017</strong>
+	<br/>
+</footer>
+</html>

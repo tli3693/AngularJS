@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" href="../styles/style.css"/>
+	<script type="text/javascript" src="../scripts/angular.min.js"></script>
+</head>
+
+<body>
+	<header>
+		<h1>My Clock Page</h1>
+	</header>
+	<nav>	
+		<ul class="navi">
+			<li><a class="active" href="../index.html">Home</a></li>
+			<li><a href="ang.html">Angular Page</a></li>
+			<li><a href="#clock.html">Clock</a></li>
+			<li><a href="about.html">About</a></li>
+			<li><a href="calculator.html">Calculator</a></li>
+			<li id="searchBox"><input></input> <input type="button" value="Search"></input></li>
+		</ul>
+	</nav>
+	<br/>
+	
+	<section>
+		<div ng-controller="clockCtrl">
+			<span> Today is: {{date}}</span>
+			<button ng-click="updateTime()">Update Time</button>
+			
+			<p ng-if="userName != ''">{{greeting + " " + userName}} </p>
+		</div>
+	</section>
+	
+	<article></article>
+	
+	<aside></aside>
+	<script>
+		var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		
+		var myModule = angular.module("myApp", []);
+		myModule.controller("clockCtrl", getTimeOfDay);
+		
+		function getTimeOfDay($scope) { // Get current Date and Time
+			var date = new Date();
+			hourOfDay = date.getHours();
+			minsOfDay = date.getMinutes();
+			timeOfDay = "";
+			var month = monthNames[date.getMonth()];
+			var day = date.getUTCDate();
+			var seconds = date.getSeconds();
+
+			// Get suffix depending on day
+			if(day%10==1) 
+				day = day + "st";
+			else if(day%10==2) 
+				day = day + "nd";
+			else if(day%10==3) 
+				day = day + "rd";
+			else
+				day = day + "th";
+				
+			var year = date.getFullYear();
+			
+			// conver to 12 hr clock (check AM/PM)
+			if(hourOfDay>12) {
+			 timeOfDay = timeOfDay + (hourOfDay-12) + ":" + minsOfDay + ":" + seconds + " PM EST"
+			} else {
+				timeOfDay = timeOfDay + hourOfDay + ":" + minsOfDay + ":" + seconds + " AM EST"
+			}
+			
+			// Set date and time to scope variable
+			$scope.date =  month + " " + day + ", " + year + " " + timeOfDay;
+			
+			$scope.updateTime = function() {
+			getTimeOfDay($scope);
+			console.log("button clicked");
+			}
+			
+		}
+	</script>
+</body>
+
+<footer>
+	<br/>
+	<strong>Troy Li - 2017</strong>
+	<br/>
+</footer>
+</html>

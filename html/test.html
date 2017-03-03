@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="ang">
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" href="../styles/style.css"/>
+	<script type="text/javascript" src="../scripts/angular.min.js"></script>
+	<script type="text/javascript" src="../scripts/app.js"></script>
+</head>
+
+<body>
+	<header>
+		<h1>My Test Page</h1>
+	</header>
+	<nav>	
+		<ul class="navi">
+		  <li><a class="active" href="../index.html">Home</a></li>
+		  <li><a href="ang.html">Angular Page</a></li>
+		  <li><a href="clock.html">Clock</a></li>
+		  <li><a href="about.html">About</a></li>
+		  <li><a href="calculator.html">Calculator</a></li>
+		  <li id="searchBox"><input></input> <input type="button" value="Search"></input></li>
+		</ul>
+	</nav>
+	<br/>
+	
+	<section>
+		<h1>Nested controllers</h1>
+				
+		<div ng-controller="ctrl1 as c1">
+			<p>{{c1.testProp}}</p>
+			<div ng-controller="ctrl2 as c2">
+				<p>{{c2.testProp}}</p>
+			</div>
+		</div>
+		
+	</section>
+	
+	<article></article>
+	
+	<aside></aside>
+</body>
+
+<footer>
+	<br/>
+	<strong>Troy Li - 2017</strong>
+	<br/>
+</footer>
+</html>
