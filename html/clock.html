@@ -61,7 +61,7 @@
 				
 			var year = date.getFullYear();
 			
-			// conver to 12 hr clock (check AM/PM)
+			// convert to 12 hr clock (check AM/PM)
 			if(hourOfDay>12) {
 			 timeOfDay = timeOfDay + (hourOfDay-12) + ":" + minsOfDay + ":" + seconds + " PM EST"
 			} else {
@@ -72,10 +72,9 @@
 			$scope.date =  month + " " + day + ", " + year + " " + timeOfDay;
 			
 			$scope.updateTime = function() {
-			getTimeOfDay($scope);
-			console.log("button clicked");
+				getTimeOfDay($scope);
+				console.log("button clicked");
 			}
-			
 		}
 	</script>
 </body>
