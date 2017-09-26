@@ -5,12 +5,11 @@
 	<link rel="stylesheet" href="../styles/style.css"/>
 	<script type="text/javascript" src="../scripts/angular.min.js"></script>
 	<script type="text/javascript" src="../scripts/app.js"></script>
+
 </head>
 
 <body>
-	<header>
-		<h1>My Calculator Page</h1>
-	</header>
+	
 	<nav>	
 		<ul class="navi">
 		  <li><a class="active" href="../index.html">Home</a></li>
@@ -21,13 +20,18 @@
 		  <li id="searchBox"><input></input> <input type="button" value="Search"></input></li>
 		</ul>
 	</nav>
-	<br/>
+	<header>
+			<h1>My Calculator Page</h1>
+	</header>
 	
 	<section ng-controller="ctrl1 as c1">
-		<h1>Calculator</h1>
 				
 		<div>
-			<p style="color: red">{{c1.errors}}</p>
+			<p style="color: red" ng-show="c1.errors">{{c1.errors}}</p>
+			<p ng-if="!c1.errors&&c1.first!=null&&c1.second!=null&&c1.result!=null">
+				You entered:<br/><br/>
+				{{c1.first}} {{c1.operation}} {{c1.second}} = {{c1.result}}
+			</p>
 			<p>
 				<input type="number" ng-model="c1.first"></input> 
 				<span>{{c1.operation}}</span>
@@ -39,13 +43,6 @@
 				<button ng-click="c1.changeOperation('/')">/</button> 
 				<button ng-click="c1.changeOperation('+')">+</button> 
 				<button ng-click="c1.changeOperation('-')">-</button>
-			</p>
-		</div>
-		
-		<div>
-			<p>You entered:</p>
-			<p ng-if="c1.first!=null&&c1.second!=null&&c1.result!=null">
-			{{c1.first}} {{c1.operation}} {{c1.second}} = {{c1.result}}
 			</p>
 		</div>
 		

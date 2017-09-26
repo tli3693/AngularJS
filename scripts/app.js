@@ -18,7 +18,7 @@ function controller1() {
 	
 	this.calculate = function() {
 		console.log("Calculating...");
-		
+		this.errors = "";
 		if(this.first!=null && this.second!=null) {
 			if(this.operation==="+")
 				this.result = this.first + this.second;
@@ -31,7 +31,6 @@ function controller1() {
 			else {
 				this.errors = "Some error occurred!"
 			}
-			this.errors = "";
 		}
 		else
 			this.errors = "Please enter a number in each textbox below!"
